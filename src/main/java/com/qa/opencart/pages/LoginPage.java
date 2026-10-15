@@ -3,6 +3,7 @@ package com.qa.opencart.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.qa.opencart.constants.AppConstants;
 import com.qa.opencart.utils.ElementUtils;
 
 //public class LoginPage {
@@ -87,38 +88,38 @@ public class LoginPage {
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
-		eleUtil = new ElementUtils(driver);
+		eleUtil = new ElementUtils(this.driver);
 	}
 	
 	// CTRL + O = To see the methods in ElementUtils class
 
 	public String getLoginPageTitle() {
-		String title = eleUtil.waitForTitleIs("Account Login", 5);
+		String title = eleUtil.waitForTitleIs(AppConstants.LOGIN_PAGE_TITLE, AppConstants.SHORT_DEFAULT_WAIT);
 		System.out.println("Login page title is: " + title);
 		return title;
 	}
 
 	public String getLoginPageURL() {
-		String url = eleUtil.waitForURLContains("account/login", 5);
+		String url = eleUtil.waitForURLContains(AppConstants.LOGIN_PAGE_URL_FRACTION, AppConstants.SHORT_DEFAULT_WAIT);
 		System.out.println("Login page url is: " + url);
 		return url;
 	}
 
 	public boolean isForgotPwdLinkExist() {
-		return eleUtil.waitForVisibilityOfElement(forgotPwdLink, 5).isDisplayed();
+		return eleUtil.waitForVisibilityOfElement(forgotPwdLink, AppConstants.SHORT_DEFAULT_WAIT).isDisplayed();
 	}
 
 	public boolean isLogoExist() {
-		return eleUtil.waitForVisibilityOfElement(logo, 5).isDisplayed();
+		return eleUtil.waitForVisibilityOfElement(logo, AppConstants.SHORT_DEFAULT_WAIT).isDisplayed();
 	}
 
-	public boolean doLogin(String username, String pwd) {
-		eleUtil.waitForVisibilityOfElement(userName, 10).sendKeys(username);
+	public AccountsPage doLogin(String username, String pwd) {
+		eleUtil.waitForVisibilityOfElement(userName, AppConstants.MEDIUM_DEFAULT_WAIT).sendKeys(username);
 		// I don't want to wait for password and login button as I have already waited for email and the other two will be already there
 		eleUtil.doSendKeys(password, pwd);
 		eleUtil.doClick(loginBtn);
-		System.out.println("User is logged in");
-		return true;
+
+		return new AccountsPage(driver);
 	}
 
 }

@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.qa.opencart.base.BaseTest;
+import com.qa.opencart.constants.AppConstants;
 
 public class LoginPageTest extends BaseTest {
 
@@ -11,13 +12,13 @@ public class LoginPageTest extends BaseTest {
 	@Test(priority = 1)
 	public void loginPageTitleTest() {
 		String actTitle = loginPage.getLoginPageTitle();
-		Assert.assertEquals(actTitle, "Account Login");
+		Assert.assertEquals(actTitle, AppConstants.LOGIN_PAGE_TITLE);
 	}
 
 	@Test(priority = 2)
 	public void loginPageURLTest() {
 		String actURL = loginPage.getLoginPageURL();
-		Assert.assertTrue(actURL.contains("account/login"));
+		Assert.assertTrue(actURL.contains(AppConstants.LOGIN_PAGE_URL_FRACTION));
 	}
 
 	@Test(priority = 3)
@@ -34,7 +35,11 @@ public class LoginPageTest extends BaseTest {
 	public void loginTest() {
 		// loginPage.doLogin("aseer@gmail.com", "Test123");
 		// Temporary assertion to complete the Test, as every test should have an assertion as per AAA rule
-		Assert.assertTrue(loginPage.doLogin("aseer@gmail.com", "Test123"));
+		// Assert.assertTrue(loginPage.doLogin("aseer@gmail.com", "Test123"));
+		
+		// Updated this assertion to verify the successful login
+		accPage = loginPage.doLogin("aseer@gmail.com", "Test123");
+		Assert.assertTrue(accPage.isLogoutLinkExist());
 	}
 
 	// Here is one issue in the code execution: As we know the tests in TestNG will run in alphabetical order by default and
