@@ -1,5 +1,10 @@
 package com.qa.opencart.factory;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -11,9 +16,13 @@ import com.qa.opencart.exception.FrameworkException;
 public class DriverFactory {
 
 	// driver initialization
-	WebDriver driver; // right now it points to null
+	WebDriver driver;
+	Properties prop;
 
-	public WebDriver initDriver(String browserName) {
+	public WebDriver initDriver(Properties prop) {
+		
+		String browserName = prop.getProperty("browser");
+		
 		System.out.println("Browser name is: " + browserName);
 		// We will implement the cross browser logic here
 		switch (browserName.toLowerCase().trim()) {
@@ -33,21 +42,38 @@ public class DriverFactory {
 			System.out.println("Please pass the right browser name ..." + browserName);
 			throw new FrameworkException("No Browser Found ...");
 		}
-		
+
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		// This URL will be removed later and read from the configuration file.
-		// For now, we will keep it hardcoded, and the same applies to the browser names above.
-		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
-		return driver; 
-			// Why return the driver? To allow the calling class to use the same browser instance.
-			// What happens if we don't return it? The calling class cannot receive the driver through this method, 
-			// so it cannot use the returned reference to interact with the browser.
+		// For now, we will keep it hard-coded, and the same applies to the browser names above.
+		driver.get(prop.getProperty("url"));
+		return driver;
+
+	}
+
+	public Properties initProp() {
+		// Initializing Properties Class -- creating its object
+		prop = new Properties();
+		// Establishing connection with config.properties file
+		try {
+			FileInputStream ip = new FileInputStream("./src/test/resources/config/config.properties");
+			// Loading the data from config.prperties
+			prop.load(ip);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		// ./ means start from the root of the project and reach to the
+		// config.properties file. -- You can show this using the tree command
+		return prop;
 	}
 	
-	// Question?
-	// NOW how exactly will the Login page get this driver? or how will you link this driver to the login page
-	// We now that the driver in the LoginPage is still pointing to null.
-	// Now we will start writing our testng classes.
+	// Where should we call this method ? We will call this method from BaseTest class
+	// Why BaseTest? Because we have to start fetching values from config.properties file and the 
+	// the first value we want to fetch is the chrome. so we already have the object and reference of the DriverFactory class inside the BaseTest
+	// class all we have to do it to call the initProp() using the DriverFactory class reference variable
+	
 
 }

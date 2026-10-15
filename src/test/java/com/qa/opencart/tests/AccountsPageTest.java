@@ -12,11 +12,12 @@ import com.qa.opencart.constants.AppConstants;
 public class AccountsPageTest extends BaseTest {
 
 	/*
-	 * First condition -- User should login to interact with account page The
-	 * question is: where should we perform the login? which class should be perform
-	 * the login? As we know that we already have the doLogin() method inside the
-	 * LoginPage class, now the question is which class should we call this method?
-	 * we should this method from AccountsPageTest class as it is the precondition
+	 * First condition -- User should login to interact with account page 
+	 * The question is: where should we perform the login? 
+	 * which class should be perform the login? 
+	 * As we know that we already have the doLogin() method inside the LoginPage class.
+	 * now the question is which class should we call this method?
+	 * we should call this method from AccountsPageTest class as it is the precondition
 	 * for this class To call the doLogin() we will wrap it inside the @BeforeClass
 	 * 
 	 * Why did you not initialize the accPage on the BaseTest class? Because we
@@ -29,7 +30,9 @@ public class AccountsPageTest extends BaseTest {
 	@BeforeClass
 	public void accsetup() {
 		// accPage = new AccountsPage(driver);
-		accPage = loginPage.doLogin("aseer@gmail.com", "Test123");
+		// accPage = loginPage.doLogin("aseer@gmail.com", "Test123");
+		// After fetching the values from config.properties file
+		accPage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 	}
 
 	@Test

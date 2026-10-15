@@ -38,7 +38,9 @@ public class LoginPageTest extends BaseTest {
 		// Assert.assertTrue(loginPage.doLogin("aseer@gmail.com", "Test123"));
 		
 		// Updated this assertion to verify the successful login
-		accPage = loginPage.doLogin("aseer@gmail.com", "Test123");
+		// accPage = loginPage.doLogin("aseer@gmail.com", "Test123");
+		// After fetching the values from properties file
+		accPage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 		Assert.assertTrue(accPage.isLogoutLinkExist());
 	}
 
