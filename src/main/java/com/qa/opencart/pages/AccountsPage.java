@@ -19,6 +19,7 @@ public class AccountsPage {
 	private By logoutLink = By.linkText("Logout");
 	private By search = By.xpath("//input[@name='search']");
 	private By accHeaders = By.xpath("//h2"); // You can also cssSelector --> div#content h2
+	private By searchIcon = By.cssSelector("div#search button");
 
 	// Page Constructor
 	public AccountsPage(WebDriver driver) {
@@ -62,6 +63,22 @@ public class AccountsPage {
 			headersValList.add(text);
 		}
 		return headersValList;
+	}
+	
+	public SearchResultsPage doSearch(String searchKey) {
+		eleUtil.waitForVisibilityOfElement(search, AppConstants.MEDIUM_DEFAULT_WAIT).sendKeys(searchKey);
+		eleUtil.doClick(searchIcon);
+		return new SearchResultsPage(driver);
+		
+		/*	Clicking the search icon land us on a different page, so the "doSearch()" Method is responsible
+		 	to return the object of the landing page so we can have the chaining concept applied.
+		 	
+		 	Test-Driven Development (TDD)
+		 		Creating the "SearchResultsPage" class from this class is called Test-Driven Development.
+		 		Test-Driven Development (TDD) is a software development approach where tests are written 
+		 		before the actual code is written
+		 		
+		 */
 	}
 
 }

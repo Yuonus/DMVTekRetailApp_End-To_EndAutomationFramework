@@ -69,4 +69,13 @@ public class AccountsPageTest extends BaseTest {
 		System.out.println(actAccPageHeadersList);
 		Assert.assertEquals(actAccPageHeadersList, AppConstants.AACOUNTS_PAGE_HEADERS_LIST);
 	}
+	
+	// Day 29
+	@Test
+	public void searchTest() {
+		searchResultsPage = accPage.doSearch("MacBook");
+		productInfoPage = searchResultsPage.selectProducts("MacBook Pro");
+		String actProductHeader = productInfoPage.getProductHeaderName();
+		Assert.assertEquals(actProductHeader, "MacBook Pro");
+	}
 }
