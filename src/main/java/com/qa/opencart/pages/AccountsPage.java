@@ -66,9 +66,10 @@ public class AccountsPage {
 	}
 	
 	public SearchResultsPage doSearch(String searchKey) {
+		eleUtil.waitForVisibilityOfElement(search, AppConstants.MEDIUM_DEFAULT_WAIT).clear();
 		eleUtil.waitForVisibilityOfElement(search, AppConstants.MEDIUM_DEFAULT_WAIT).sendKeys(searchKey);
 		eleUtil.doClick(searchIcon);
-		return new SearchResultsPage(driver);
+		return new SearchResultsPage(driver); // TDD
 		
 		/*	Clicking the search icon land us on a different page, so the "doSearch()" Method is responsible
 		 	to return the object of the landing page so we can have the chaining concept applied.

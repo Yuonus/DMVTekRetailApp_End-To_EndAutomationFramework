@@ -85,7 +85,9 @@ public class LoginPage {
 	private By loginBtn = By.xpath("//input[@type='submit']");
 	private By forgotPwdLink = By.linkText("Forgotten Password");
 	private By logo = By.cssSelector("img[title='naveenopencart']");
-
+	// Day 30
+	private By registerLink = By.linkText("Register");
+	
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 		eleUtil = new ElementUtils(this.driver);
@@ -120,6 +122,11 @@ public class LoginPage {
 		eleUtil.doClick(loginBtn);
 
 		return new AccountsPage(driver);
+	}
+	
+	public RegisterPage navigateToRegisterPage() {
+		eleUtil.waitForVisibilityOfElement(registerLink, AppConstants.MEDIUM_DEFAULT_WAIT).click();
+		return new RegisterPage(driver); // TDD
 	}
 
 }

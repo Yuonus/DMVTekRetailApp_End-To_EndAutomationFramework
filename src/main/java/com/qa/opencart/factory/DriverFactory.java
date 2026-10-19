@@ -18,22 +18,24 @@ public class DriverFactory {
 	// driver initialization
 	WebDriver driver;
 	Properties prop;
+	OptionsManager optionsManager;
 
 	public WebDriver initDriver(Properties prop) {
-		
 		String browserName = prop.getProperty("browser");
-		
 		System.out.println("Browser name is: " + browserName);
+		
+		optionsManager = new OptionsManager(prop);
+		
 		// We will implement the cross browser logic here
 		switch (browserName.toLowerCase().trim()) {
 		case "chrome":
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(optionsManager.getChromeOptions());
 			break;
 		case "firefox":
-			driver = new FirefoxDriver();
+			driver = new FirefoxDriver(optionsManager.getFirefoxOptions());
 			break;
 		case "edge":
-			driver = new EdgeDriver();
+			driver = new EdgeDriver(optionsManager.getEdgeOptions());
 			break;
 		case "safari":
 			driver = new SafariDriver();

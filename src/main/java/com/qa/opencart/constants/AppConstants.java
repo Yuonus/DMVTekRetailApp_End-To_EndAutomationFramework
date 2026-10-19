@@ -35,25 +35,5 @@ public class AppConstants {
 	
 	public static final List<String> AACOUNTS_PAGE_HEADERS_LIST = Arrays.asList("My Account", "My Orders", "My Affiliate Account", "Newsletter");
 
-	
-	// Assignment: if your test cases are having any of the hard-coded values put it here
-	
-	/*				 Properties File
-	 	1: PF provided by Java
-	 	2: Usage: stores configuration setting + other information that a program needs
-	 	3: Data is stored in Key-Value pairs
-	 	4: Data access -- using the key
-	 	5: Key is unique
-	 	6: What can we store
-	 		>> App URL
-	 		>> Browser Types --> Chrome, FF, Edge
-	 		>> Test data location
-	 		>> Credentials
-	 		>> API Keys + Secrets
-	 	7: Why Properties file?
-	 		:: To prevent hard coded values in the test script
-	 		:: We can control the configuration data from one location
-	 			like: Browser change -- URL Change -- Credential changes
-	 
-	 */
+	public static final String USER_REGISTER_SUCCESS_MESSAGE = "Your Account Has Been Created!";
 }
