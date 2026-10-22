@@ -8,6 +8,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.opencart.base.BaseTest;
+import com.qa.opencart.constants.AppConstants;
+import com.qa.opencart.utils.ExcelUtils;
 
 public class ProductResultsPageTest extends BaseTest{
 	
@@ -29,25 +31,40 @@ public class ProductResultsPageTest extends BaseTest{
 			Because an Object array can store any type of data, such as int, char, float, double, String, etc. This makes it flexible for passing different types of test data to your test methods.
 	 */
 	
+//	@DataProvider
+//	public Object[][] getSearchData() {
+//		return new Object[][] {
+//			{"MacBook", "MacBook Pro", 4},
+//			{"MacBook", "MacBook Air", 4},
+//			{"iMac", "iMac", 3},
+//			{"Samsung", "Samsung SyncMaster 941BW", 1},
+//		};
+//	}
+	
 	@DataProvider
-	public Object[][] getSearchData() {
-		return new Object[][] {
-			{"MacBook", "MacBook Pro", 4},
-			{"MacBook", "MacBook Air", 4},
-			{"iMac", "iMac", 3},
-			{"Samsung", "Samsung SyncMaster 941BW", 1},
-		};
+	public Object[][] getSearchExcelTestData() {
+		return ExcelUtils.getTestData(AppConstants.PRODUCT_DATA_SHEET_NAME);
 	}
 	
-	@Test(dataProvider = "getSearchData")
-	public void procutImagesTest (String searchKey, String productName, int imageCount) {
+	@Test(dataProvider = "getSearchExcelTestData")
+	public void procutImagesTest (String searchKey, String productName, String imageCount) {
 		// searchResultsPage = accPage.doSearch("MacBook");
 		searchResultsPage = accPage.doSearch(searchKey);
 		// productInfoPage = searchResultsPage.selectProducts("MacBook Pro");
 		productInfoPage = searchResultsPage.selectProducts(productName);
 		// Assert.assertEquals(productInfoPage.getProductImagesCount(), 4);
-		Assert.assertEquals(productInfoPage.getProductImagesCount(), imageCount);
+		Assert.assertEquals(String.valueOf(productInfoPage.getProductImagesCount()), imageCount);
 	}
+	
+//	@Test(dataProvider = "getSearchData")
+//	public void procutImagesTest (String searchKey, String productName, int imageCount) {
+//		// searchResultsPage = accPage.doSearch("MacBook");
+//		searchResultsPage = accPage.doSearch(searchKey);
+//		// productInfoPage = searchResultsPage.selectProducts("MacBook Pro");
+//		productInfoPage = searchResultsPage.selectProducts(productName);
+//		// Assert.assertEquals(productInfoPage.getProductImagesCount(), 4);
+//		Assert.assertEquals(productInfoPage.getProductImagesCount(), imageCount);
+//	}
  
 //	@Test
 //	public void procutImagesTest () {

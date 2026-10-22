@@ -56,8 +56,8 @@ public class RegisterPage {
 		
 		if(successMessage.contains(AppConstants.USER_REGISTER_SUCCESS_MESSAGE)) {
 			// Work these two methods after the Data provider
-			//  eleUtil.doClick(logoutLink);
-			 // eleUtil.doClick(registerLink);
+			  eleUtil.doClick(logoutLink);
+			  eleUtil.doClick(registerLink);
 			return true;
 		} else {
 			return false;

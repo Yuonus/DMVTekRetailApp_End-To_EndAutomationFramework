@@ -36,4 +36,7 @@ public class AppConstants {
 	public static final List<String> AACOUNTS_PAGE_HEADERS_LIST = Arrays.asList("My Account", "My Orders", "My Affiliate Account", "Newsletter");
 
 	public static final String USER_REGISTER_SUCCESS_MESSAGE = "Your Account Has Been Created!";
+	
+	public static final String REGISTRATION_DATA_SHEET_NAME = "register";
+	public static final String PRODUCT_DATA_SHEET_NAME = "product";
 }
