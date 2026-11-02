@@ -36,4 +36,20 @@ To practice branching:
 	6.	Run the git status command to make sure the checkout was successful to cartpage branch.
 	7.	To create the same branch on remote repo run this command: 
 			git push origin cartpage
+			
+
+Two Technical Terms:
+	1: Behind (Lagging): Indicates that a branch is behind another branch and is missing one or more commits.
+	2: Ahead (Leading): Indicates that a branch is ahead of another branch and contains one or more commits that have not yet been incorporated into it.
+
+Merging Changes from Local Main/Master to a Local Feature Branch
+(Local to Local):
+	Manager task you two feature: u create two feature branch
+	push them to the remote site -- created PR -- but still not approved
+	ur manager tasks you with the third prj -- now create another feature branch -- working on this feature branch -- and the two others are approved and merged
+	U pull the latest into local main. what do you do with your local feature branch: delete, leave as is, create a new feature branch?
+	You will do the local merge concept
+	
+	
+
 
