@@ -1,0 +1,83 @@
+
+=================== Dev Ops Section =============================
+Git -?
+	1: is an open source Distributed Version Control System
+	2: It help developers keep track of changes in their code
+		a: Control System: Means Git is a control tracker -- and it stores the content
+		b: Version Control System: The code that is stored in the Git keeps changing as more code is added
+		since developer adds the code in parallel -- version control system helps to handle this by traking the history (who added the code, what changes were brought, when the changs were inserted)
+		c: Distributed Version Control System: Git has a remote and local repositories and this means the code is not only on the remote repo it is also on the developer
+		local computer (basically code is distributed)
+	3: Git Meaning: There is no unified meaning for it
+		Some refers it to: Global Informatio Tracker
+		The creator says I named it humoursly -- git in British slang means stupid person
+
+Repository:
+	>> A central location in which data is stored.
+
+Why Do People Use Git?
+	1: Easy Branching & Merging: Manage and merge code changes easily.
+	2: Parallel Development: Multiple developers can work simultaneously.
+	3: Version Control: Restore previous versions of code.
+	4: Code Sharing: Share code through remote repositories.
+	5: No Physical Transfer: No need to transfer files using USB drives.
+	6: Worldwide Collaboration: Developers can work from anywhere.
+	7: Change Tracking: Track who changed what and when.
+
+Git Visualization in Real life
+Bike/Car Main Prototype
+	:: You have this prototype somewhere and you do not touch it
+	:: You want to add new features to the bike -- you copy the original prototype and add the changes --
+		after addind the changes you test it -- once the test is passed and approved -- then you add those changes to the prototype
+	:: This process continues and you are not adding changes directly to the prototype -- you will be adding these changes to the copy and after testing add it to the prototype
+
+
+GitHub:
+	:: Code hosting platform
+	:: Lets you and other developers work together on projects
+
+Key concepts to know:
+	1: Repository:
+		> repository is used to store development project
+		> It can contains folders and any type of files like: HTML, CSS, JavaScript, Images ... etc)
+	
+	2: Branch:
+		> Branch is used to work with different version of the repository at the same time. (each branch could be a version)
+		> By default GitHub has Master / Main branch
+		> Any other branch is the copy of the Master/Main branch and exist at a certain time
+		> New Branches are created for Bug fixes, new feature ...
+	
+	3: Commits:
+		> At GitHub changes are called commit
+		> Each commit has a description/reason explaining the change
+	
+	4: PR - Pull Request
+		> PRs are the heart of GitHub Collaboraton
+		> PRs propose that your changes be merged to the main branch
+		> PRs shows the difference between your changes and the original code.
+			Additions are shown with green color
+			Deletions are shown with red color --> subtraction -
+	
+	5: Conflicts:
+	When do GitHub conflicts happen?
+		>> Merge conflicts happen when people make different changes to the same line of the same file
+		>> Merge conflicts happen when one person edits a file and another person deletes the same file.
+	Note: You must resolve all merge conflicts before you can merge a pull request on GitHub.
+	
+Difference between Git and GitHub
+	Git:
+		:: Is a software
+		:: Installation: On your local machine
+		:: Command line tool
+		:: Can work offline
+	GitHub:
+		:: Is a service
+		:: Hosted on the Cloud/web
+		:: Provides UI 
+		:: Cannot work offline
+
+
+
+
+
+
