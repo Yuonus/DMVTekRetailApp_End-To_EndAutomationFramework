@@ -1,0 +1,39 @@
+
+
+Branch:
+	:: A GitHub branch is used to work with different versions of a repository at the same time.
+	:: By default repo has Main -- Master branch
+	:: Other branches are the copies of the Main
+	:: New branches, Y are they created? New branches are created for bug fixes or new feature development 
+	:: Once changes in new branches are completed will go through the following steps
+		>> PR created
+		>> Reviewed
+		>> Tested
+		>> Finally getting merged into Main branch
+
+Points to Remember:
+	:- Do not directly work on the local master branch
+	:- Always cut a feature branch to work on the bug or new feature development
+	:- Do all your code in the feature branch
+	:- push the code to your locally created branch
+	:- This will create a remote feature branch in the GitHub.com
+	:- Raise a PR
+	:- The reviewers will review the code -- will provide their comments and will approve the code
+	:- Merge the code to Master remote branch
+		who merge? It depends on the company culture. Maybe the tester himself, the team lead, or the manager
+	:- At end: All the other teammates including the developer himself should pull the latest changes into their local repository
+
+To practice branching:
+	1.	Go to project directory.
+			cd C:\Users\syuonus\eclipse-workspace\Oct2026PomSeries
+	2.	git branch --> you will be on the local main/master branch
+	3.	To create a copy of this local main/master branch run this given command:
+			git branch <branch name> --> git branch cartpage
+	4.	To know the number of local branches, run
+			git branch
+	5.	Now, checkout to cartpage branch in order to work on it.
+			git checkout cartpage
+	6.	Run the git status command to make sure the checkout was successful to cartpage branch.
+	7.	To create the same branch on remote repo run this command: 
+			git push origin cartpage
+
