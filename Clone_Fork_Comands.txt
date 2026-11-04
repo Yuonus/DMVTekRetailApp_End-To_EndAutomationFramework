@@ -1,0 +1,83 @@
+	
+	Forking Repository:
+		:: A new repository that shares code with the upstream repository
+			upstream means original repo
+		:: Forking Repository means creating a personal copy of someone else's respository under your own GitHub account.
+			Forking allows you to bring any changes to the forked repo, without affecting the upstream repo
+	
+	Forking Usage:
+		:- Making changes to an open-source project
+		:- Proposing improvements or bug fixes via pull requests (specifically used in community support projects)
+		:- keeping your own version of someone else's project
+	
+	When you fork a repo, expect the followings
+		>> A copy is created in your GitHub account
+		>> you can clone it to your local machine
+		>> after making the changes you can push the updates to your fork
+		>> You can also suggest your changes in a PR  to the original repo
+	
+	Practical Practice of forking:
+	Let’s fork a public repository. To do this on GitHub, follow these steps:
+		1.	In the GitHub search bar, type "Springboot" and press enter.
+		2.	Choose a repository you want to fork. For this example, I’ll select "Wangzaiplus/Springboot": https://github.com/wangzaiplus/springboot.
+		3.	Click on the repository to open it.
+		4.	Click the "Fork" button in the top-right corner.
+		5.	In the pop-up, click "Create fork" to complete the process.
+	
+	
+	Fork vs. Clone
+	What is the difference between Fork and Clone?
+	Any public Git repository can be either forked or cloned.
+	A fork creates a completely independent copy of a Git repository.
+	In contrast, a clone creates a local copy that remains linked to the original repository and can continue to synchronize with it.
+	
+	Forking
+			What it does: Creates a copy of a repository on GitHub under your own account.
+			Where it happens: On GitHub (the remote server).
+			Why use it:
+			•	To contribute to someone else's project without affecting the original.
+			•	To propose changes via pull requests.
+			•	To maintain your own version of a project publicly.
+			Typical use case: Open-source contributions.
+	
+	Cloning
+			What it does: Downloads a repository from GitHub to your local machine.
+			Where it happens: On your computer (local environment).
+			Why use it:
+			•	To work on the code locally.
+			•	To explore, test, or develop features offline.
+			Typical use case: Starting work on any project, your own or one you’ve forked.
+	
+	In Short:
+		•	Fork = copy to your GitHub account.
+		•	Clone = copy to your computer.
+	
+	
+	Deleting a Branch from GitHub:
+	To delete a branch, consider the following steps:
+	1.	Switch to the branch you would like to delete. --> cartpage
+			git switch cartpage
+	2.	To remove the cartpage branch, run this given command.
+			git push -d origin <branch name> --> git push -d origin cartpage
+		or git push -delete origin cartpage --- > If you get this given error, then double the dashes
+		error: did you mean --delete (with two dashes)?
+			git push --delete origin cartpage
+	3.	Now, the cartpage branch will be deleted from the remote side. Go to the GitHub, refresh the page. You won’t see the cartpage branch. But remember, 
+		it will be in your local if you run this command: git branch. But if you run this command, git branch -r --> You won’t see this branch.
+	
+	Deleting a Branch locally
+	To delete a local branch, run this given command.
+		Firstly, you will have to checkout to a branch that you don’t want to delete.
+		If you are on the same branch, and you want to delete it, you will get this error:
+		"error: Cannot delete branch 'branch' checked out at 'C:/Users" means that you cannot delete the branch 'branch' because you are 
+		currently checked out on that branch. To delete a branch, you must first switch to a different branch.
+		Secondly, run this command --> git branch -d <branchName>
+		git branch -d testing
+	
+	Git Conflicts
+	When do GitHub conflicts happen?
+		:: Merge conflicts happen when people make different changes to the same line of the same file
+		:: Or when one person edits a file and another person deletes it
+		:: Merge Conflicts should be resolved before you can merge the changes
+
+
