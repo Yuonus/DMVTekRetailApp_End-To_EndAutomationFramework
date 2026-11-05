@@ -1,0 +1,42 @@
+
+Re-writing History in GitHub -- Reversion
+	:: Rewriting refers to modifying the commit history of a repository
+	:: It should be used with caution, as it can impact the integrity of the repository
+	:: The following re-write histories will be discussed here
+		A: git reset --soft
+		B: git reset --mixed
+		C: git reset --hard
+
+git reset --soft
+	:: Uses to move the HEAD Pointer.
+		HEAD Pointer means current branch reference or latest commit
+	:: This will not affect the staging area and working directory
+	:: In simple: git reset --soft removes the commit only. From where? from the local repo.
+Example:
+	git reset --soft <Head^> ---> Windows (Git Bash)
+	git reset --soft 6c4acfb^
+	
+git reset --mixed
+	:: Will remove everything from Commit and Stage area
+		git reset --mixed HEAD ^
+		git reset --mixed 6c4acfb^
+
+git reset --hard
+	:: Remove the changes/commits from local repo, stage area, and working copy
+	:: Use this command with caution -- Y ? As it permanently deletes any uncommitted changes made to the file
+		git reset --hard HEAD^
+		git reset --hard 6c4acfb^
+
+Reversion from Remote:
+	
+
+
+Framework Clean up
+Aug2023POMSeries
+We've nearly completed everything required for GitHub, so it's time to clean up our August 2023 POM Series project by 
+removing the extra or practice classes we've added along the way. Also delete all the remote and local feature branches.
+1.	Run git status command
+2.	Add all the changes to the staging area. git add .
+3.	Do a commit. git commit -m "Deleted unnecessary files, that were created for git practice purpose"
+4.	Push the changes to remote main branch. git push origin main
+5.	Go to your GitHub repository page and refresh it. All the practice classes or changes will now be removed.
