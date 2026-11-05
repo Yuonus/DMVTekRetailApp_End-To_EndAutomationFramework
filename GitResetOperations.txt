@@ -28,7 +28,19 @@ git reset --hard
 		git reset --hard 6c4acfb^
 
 Reversion from Remote:
-	
+	>> Create a dummy class SeleniumTest -- add some code 
+	>> git status
+	>> git add .
+	>> git commit -m "Selenium Test class has been added"
+	>> git push origin master
+		== Start reversion from here
+	>> First Hard Reset to remove the changes from the local
+		git reset --hard HEAD^
+	>> Verify: git log --oneline
+	>> Now push the changes to the remote -- git push origin master 
+		-- This will cause conflict -- instead use the given command to remove the changes from the remote as well
+		git push origin -f master
+	>> Verify: git log --oneline
 
 
 Framework Clean up
